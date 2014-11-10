@@ -9,13 +9,19 @@ import glob,os
 from PIL import Image
 
 def r2g(rgb):
-    img = np.dot(rgb[...,:3],[0.2999,0.587,0.144])
+    img = np.round(np.dot(rgb[...,:3],[0.2999,0.587,0.144]))
     return img[::-1]
 
 def showImage(img):
     plt.imshow(img,cmap=plt.get_cmap('gray'))
     plt.show()
 
+def showImageByPIL(img):
+    im = Image.fromarray(img)
+    im.show()
+
+def normalization(img):
+    return img/255
 
 ##dset = []
 #for infile in glob.glob("./face_0/*.jpg"):
@@ -53,7 +59,7 @@ def convertImage(waitList):
     return dset
 
 def simpleRotate(ndArray,degree):
-    rotate = ndimage.rotate(ndArray,degree)
+    rotate = ndimage.rotate(ndArray,degree,reshape=False)
     showImage(rotate)
 
 #def simpleRescale(image,
@@ -76,4 +82,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-    
+   

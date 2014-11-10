@@ -1,0 +1,36 @@
+## shitf function
+gimg = ndimage.interpolation.shift(gimg,10.0)
+>>> sg = Image.fromarray(sgimg)
+>>> sg.show()
+>>> g.show()
+>>> sgimg = ndimage.interpolation.shift(gimg,100.0)
+>>> sg = Image.fromarray(sgimg)
+>>> sg.show()
+>>> sgimg = ndimage.interpolation.shift(gimg,(50.0,0))
+>>> sg = Image.fromarray(sgimg)
+
+## zoom function
+
+zgimg = ndimage.interpolation.zoom(gimg,1.0/2)
+>>> len(zgimg)
+
+
+##white noise
+>> wb = np.ones((400,400))
+>>> wb
+array([[ 1.,  1.,  1., ...,  1.,  1.,  1.],
+       [ 1.,  1.,  1., ...,  1.,  1.,  1.],
+       [ 1.,  1.,  1., ...,  1.,  1.,  1.],
+       ..., 
+       [ 1.,  1.,  1., ...,  1.,  1.,  1.],
+       [ 1.,  1.,  1., ...,  1.,  1.,  1.],
+       [ 1.,  1.,  1., ...,  1.,  1.,  1.]])
+>>> wb = wb*255
+>>> wb
+array([[ 255.,  255.,  255., ...,  255.,  255.,  255.],
+       [ 255.,  255.,  255., ...,  255.,  255.,  255.],
+       [ 255.,  255.,  255., ...,  255.,  255.,  255.],
+       ..., 
+       [ 255.,  255.,  255., ...,  255.,  255.,  255.],
+       [ 255.,  255.,  255., ...,  255.,  255.,  255.],
+       [ 255.,  255.,  255., ...,  255.,  255.,  255.]])

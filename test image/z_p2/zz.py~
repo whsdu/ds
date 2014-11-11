@@ -1,0 +1,85 @@
+#!/usr/bin/env python
+from position_l6 import *
+from reSize_l5 import *
+from rotate_l4 import *
+from dataPrepare_l3 import *
+from parseFile_l2 import *
+from background_l0 import *
+
+import numpy as np
+
+def getDegreeList(degree):
+    degreeList = range(0,360,degree)
+    return degreeList
+
+deg getResizeRange(longth):
+    resizeList = np.arange(2,4,0.5)
+
+def main():
+    direct = sys.argv[1]
+    degreeList = getDegreeList(5)
+    resizeRange = getResizeRange(
+
+    #level 2
+    sortList = getSortList(direct)
+    
+    #level 3
+    imgList = getImageList(sortList)
+    
+    for image in imgList:
+        img = array2Img(image)
+
+        #Level 4 pose variance: x axis rotation
+        # get image size for Level 5: resize
+        imgSize = getImgSize(img)
+
+        for degree in degreeList:
+            rimg = getRotateImg(img,degree)
+            
+            width,height = imgSize
+            #Level 5 size variance:
+            for resizeRatio in resizeList:
+                resize = [width/resizeRatio,height/resizeRatio]   
+        
+    img = array2Img(imgList[0])
+
+    # level 4
+    degree = 45
+    imgSize = getImgSize(img)
+
+    rimg = getRotateImg(img,degree)
+
+    # level 5
+    resizeRatio = 2
+    width,height = imgSize
+    resize = [width/resizeRatio,height/resizeRatio]
+
+    rsimg = getResizeImg(rimg,resize)
+    
+#    rsimg.show()
+    timg = getTransImg(rsimg)
+    
+#    timg.show()
+
+    # level  0 , get wb background
+    wb_hight = 600
+    wb_width = 600
+    
+    wb = getWhiteBackground(wb_width,wb_hight)
+    wbimg = array2Img(wb)
+
+    # level 6 & 7
+        #calculate position range
+    w,h = 150,150
+    p_img = getPositionImg(wbimg,timg,w,h)
+    p_img.show()
+
+    d_img = img2Array(p_img)
+
+    print len(d_img)
+    print len(d_img[0])
+    print d_img
+
+if __name__ == "__main__":
+    main()
+

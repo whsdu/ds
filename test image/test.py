@@ -19,7 +19,7 @@ def transImg(img):
 
     newData = []
     for item in datas:
-        if item[0] == 0 and item[1] == 0 and item[2] == 0:
+        if item[0] ==0 and item[1] == 0 and item[2] == 0:
             newData.append((255, 255, 255, 0))
         else:
             newData.append(item)
@@ -57,7 +57,7 @@ def getImagePixels(im):
 
 
 def main():
-    resizeRatio = 4
+    resizeRatio = 2
 
 
 
@@ -71,8 +71,12 @@ def main():
     #rotation use Image
     img = rotate(img)
     
+    img.show()
+
     #resize use Image
     img = imageResize(img,resize)
+
+    img.show()
 
     #transparent this image for position and background variance
     img = transImg(img)

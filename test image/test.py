@@ -7,6 +7,7 @@ from PIL import Image
 import numpy as np
 import scipy as sp
 import sys
+import h5py
 
 def loadImage(filename):
     d_img = maping.imread(filename)
@@ -39,12 +40,13 @@ def zoomImage(d_img):
     d_zimg = ndimage.interpolation.zoom(d_img,1.0/2)
     return d_zimg
 def imageResize(img,size):
+    size = [int(round(s)) for s in size]
     img.thumbnail(size,Image.ANTIALIAS)
     return img
 
 
 def getWhiteBackground():
-    wb = np.ones((700,700))
+    wb = np.ones((600,600))
     wb = wb*255
     return wb
 def getImagePixels(im):
@@ -95,6 +97,10 @@ def main():
     print "pixels is a list: " +str(isinstance(pixels,list))
     print "pixels row is a list: " + str(isinstance(pixels[0],list))
     print "pixels cell is a list: " + str(isinstance(pixels[0][0],list))
+
+#    f = h5py.File("testSet")
+#    f.create_dataset("set1",data=pixels)
+
 if __name__ == "__main__":
     main()
 

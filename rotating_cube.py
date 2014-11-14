@@ -1,9 +1,5 @@
-"""
- Simulation of a rotating 3D Cube
- Developed by Leonel Machava <leonelmachava@gmail.com>
+#!/usr/bin/env python
 
- http://codeNtronix.com
-"""
 import sys, math, pygame
 from operator import itemgetter
 
@@ -50,7 +46,7 @@ class Simulation:
         pygame.init()
 
         self.screen = pygame.display.set_mode((win_width, win_height))
-        pygame.display.set_caption("Simulation of a rotating 3D Cube (http://codeNtronix.com)")
+        pygame.display.set_caption("cube rotation")
         
         self.clock = pygame.time.Clock()
 
